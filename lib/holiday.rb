@@ -86,5 +86,11 @@ end
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
-
+holiday_hash.map do |season, holidays|
+  holidays.map do |holiday, supply_array| #iterates over each holiday and gets access to each supply array
+    if supply_array.include?("BBQ")
+      holiday  #return holiday since puts returns nil
+      end
+    end
+  end.flatten.compact #returns a multidimensional array, combines and removes nil values
 end
